@@ -225,20 +225,127 @@ html {
 }
 
 .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Brain Badge */
+.nav-logo__brain-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.2);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.nav-logo:hover .nav-logo__brain-badge {
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.5);
+  border-color: var(--accent-cyan);
+}
+
+.nav-logo__brain-svg {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.7));
+}
+
+/* Typography */
+.nav-logo__text-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.nav-logo__first {
+  color: #ffffff;
   transition: color var(--transition-fast);
 }
 
-.logo-bracket {
-  color: var(--accent-cyan);
-  font-weight: 400;
+/* Amin Container with Electric Aura */
+.nav-logo__last-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+  margin: -2px -2px;
 }
 
-.logo-dot {
-  color: var(--accent-cyan);
+/* Ambient Electric Aura Backlight */
+.nav-logo__aura {
+  position: absolute;
+  inset: -3px -8px;
+  border-radius: 8px;
+  background: radial-gradient(ellipse at center, rgba(0, 242, 254, 0.42) 0%, rgba(0, 119, 255, 0.2) 55%, transparent 80%);
+  filter: blur(8px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.7;
+  transition: all var(--transition-normal);
+  animation: aura-glow-pulse 3.2s ease-in-out infinite alternate;
+}
+
+.nav-logo__last {
+  position: relative;
+  z-index: 2;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #00f2fe 55%, #0099ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.45));
+  transition: all var(--transition-fast);
+  animation: text-electric-pulse 3.2s ease-in-out infinite alternate;
+}
+
+.nav-logo:hover .nav-logo__aura {
+  opacity: 1;
+  filter: blur(12px);
+  transform: scale(1.15);
+  background: radial-gradient(ellipse at center, rgba(0, 242, 254, 0.7) 0%, rgba(0, 119, 255, 0.35) 60%, transparent 85%);
+}
+
+.nav-logo:hover .nav-logo__last {
+  filter: drop-shadow(0 0 14px rgba(0, 242, 254, 0.9)) drop-shadow(0 0 22px rgba(0, 119, 255, 0.55));
+}
+
+@keyframes aura-glow-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1.0);
+  }
+}
+
+@keyframes text-electric-pulse {
+  0% {
+    filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 11px rgba(0, 242, 254, 0.7)) drop-shadow(0 0 18px rgba(0, 153, 255, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 0 7px rgba(0, 242, 254, 0.4));
+  }
 }
 
 .nav-menu {
