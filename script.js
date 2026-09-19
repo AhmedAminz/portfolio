@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initNavbar();
   initAnimatedCounters();
+  initClipboard();
 });
 
 /* ═══════════════════════════════════════════════════════
@@ -367,3 +368,72 @@ function initAnimatedCounters() {
     observer.observe(statsContainer);
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   6. CLICK TO COPY & TOAST NOTIFICATION
+   ═══════════════════════════════════════════════════════ */
+function initClipboard() {
+  const copyElements = document.querySelectorAll('[data-copy]');
+  const toast = document.getElementById('toast');
+  const toastMessage = document.getElementById('toast-message');
+  let toastTimeout = null;
+
+  function showToast(message) {
+    if (!toast) return;
+    if (toastMessage) toastMessage.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+  copyElements.forEach((el) => {
+    function handleCopy(e) {
+      e.preventDefault();
+      const text = el.getAttribute('data-copy');
+      if (!text) return;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          triggerSuccess(el, text);
+        }).catch(() => {
+          fallbackCopy(el, text);
+        });
+      } else {
+        fallbackCopy(el, text);
+      }
+    }
+
+    function triggerSuccess(element, text) {
+      element.classList.add('copied');
+      const label = element.querySelector('.contact-btn__label')?.textContent || 'Item';
+      showToast(`✓ Copied ${label} (${text}) to clipboard!`);
+      setTimeout(() => element.classList.remove('copied'), 2000);
+    }
+
+    function fallbackCopy(element, text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        triggerSuccess(element, text);
+      } catch (err) {
+        showToast(`Could not copy: ${text}`);
+      }
+      document.body.removeChild(textarea);
+    }
+
+    el.addEventListener('click', handleCopy);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        handleCopy(e);
+      }
+    });
+  });
+}
+
