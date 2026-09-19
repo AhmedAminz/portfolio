@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initAnimatedCounters();
   initClipboard();
+  initProjectsCarousel();
 });
 
 /* ═══════════════════════════════════════════════════════
@@ -436,4 +437,107 @@ function initClipboard() {
     });
   });
 }
+
+/* ═══════════════════════════════════════════════════════
+   7. PROJECTS HORIZONTAL CAROUSEL
+   ═══════════════════════════════════════════════════════ */
+function initProjectsCarousel() {
+  const track = document.getElementById('projects-track');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.project-slide');
+  if (!slides.length) return;
+
+  const prevBtn = document.getElementById('projects-prev');
+  const nextBtn = document.getElementById('projects-next');
+  const floatingPrev = document.getElementById('projects-floating-prev');
+  const floatingNext = document.getElementById('projects-floating-next');
+  const currentEl = document.getElementById('projects-current');
+  const dots = document.querySelectorAll('.project-dot');
+
+  let activeIndex = 0;
+  const totalSlides = slides.length;
+
+  function updateActiveState(index) {
+    activeIndex = Math.max(0, Math.min(index, totalSlides - 1));
+
+    if (currentEl) {
+      currentEl.textContent = String(activeIndex + 1).padStart(2, '0');
+    }
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === activeIndex);
+    });
+
+    const isFirst = activeIndex === 0;
+    const isLast = activeIndex === totalSlides - 1;
+
+    if (prevBtn) prevBtn.style.opacity = isFirst ? '0.35' : '1';
+    if (floatingPrev) floatingPrev.style.opacity = isFirst ? '0.35' : '1';
+    if (nextBtn) nextBtn.style.opacity = isLast ? '0.35' : '1';
+    if (floatingNext) floatingNext.style.opacity = isLast ? '0.35' : '1';
+  }
+
+  function scrollToSlide(index) {
+    if (index < 0) index = 0;
+    if (index >= totalSlides) index = totalSlides - 1;
+
+    const targetSlide = slides[index];
+    if (!targetSlide) return;
+
+    track.scrollTo({
+      left: targetSlide.offsetLeft - track.offsetLeft,
+      behavior: 'smooth'
+    });
+
+    updateActiveState(index);
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => scrollToSlide(activeIndex - 1));
+  if (floatingPrev) floatingPrev.addEventListener('click', () => scrollToSlide(activeIndex - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => scrollToSlide(activeIndex + 1));
+  if (floatingNext) floatingNext.addEventListener('click', () => scrollToSlide(activeIndex + 1));
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.getAttribute('data-index') || '0', 10);
+      scrollToSlide(idx);
+    });
+  });
+
+  // Track manual horizontal scroll/swipe
+  let scrollTimer;
+  track.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      const scrollPos = track.scrollLeft;
+      let closestIdx = 0;
+      let minDiff = Infinity;
+
+      slides.forEach((slide, idx) => {
+        const slidePos = slide.offsetLeft - track.offsetLeft;
+        const diff = Math.abs(scrollPos - slidePos);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIdx = idx;
+        }
+      });
+
+      updateActiveState(closestIdx);
+    }, 60);
+  }, { passive: true });
+
+  // Keyboard navigation
+  track.setAttribute('tabindex', '0');
+  track.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      scrollToSlide(activeIndex + 1);
+    } else if (e.key === 'ArrowLeft') {
+      scrollToSlide(activeIndex - 1);
+    }
+  });
+
+  updateActiveState(0);
+}
+
 

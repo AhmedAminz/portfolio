@@ -246,122 +246,177 @@
   <!-- ═══════════════════════════════════════════ -->
   <section id="projects" class="section projects">
     <div class="container">
-      <h2 class="section__title reveal">
-        <span class="section__title-accent">//</span> Projects
-      </h2>
-      <div class="projects__grid">
-
-        <!-- Project 1 -->
-        <article class="project-card glass-card reveal" id="project-1">
-          <div class="project-card__header">
-            <div class="project-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5"/>
-                <path d="M2 12l10 5 10-5"/>
+      <div class="projects__header-row reveal">
+        <h2 class="section__title section__title--projects">
+          <span class="section__title-accent">//</span> Featured Projects
+        </h2>
+        <div class="projects__controls">
+          <div class="projects__counter">
+            <span id="projects-current" class="projects__counter-current">01</span>
+            <span class="projects__counter-divider">/</span>
+            <span class="projects__counter-total">03</span>
+          </div>
+          <div class="projects__nav-btns">
+            <button id="projects-prev" class="projects-nav-btn" aria-label="Previous project" title="Previous project">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
               </svg>
-            </div>
-            <a href="https://github.com/AhmedAminz/medlens-ai-skin-health-assistant" target="_blank" rel="noopener noreferrer" class="project-card__github-link" aria-label="View on GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </button>
+            <button id="projects-next" class="projects-nav-btn" aria-label="Next project" title="Next project">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
-            </a>
+            </button>
           </div>
-          <h3 class="project-card__title">Clinical Decision Support RAG System</h3>
-          <p class="project-card__description">
-            An AI-powered clinical decision support system built with Retrieval-Augmented
-            Generation (RAG), designed to provide grounded answers from trusted medical
-            guidelines. Features schema-aware chunking, intent-based routing, grounded
-            generation with citations, and safety/evaluation mechanisms.
-          </p>
-          <div class="project-card__metrics">
-            <span class="metric-pill"><span class="metric-pill__icon">⚡</span> <span class="metric-pill__highlight">Grounded</span> Guidelines</span>
-            <span class="metric-pill"><span class="metric-pill__icon">🎯</span> <span class="metric-pill__highlight">Intent-Routed</span> Multi-Stage RAG</span>
-            <span class="metric-pill"><span class="metric-pill__icon">🛡️</span> <span class="metric-pill__highlight">Safety-Checked</span> Citations</span>
-          </div>
-          <div class="project-card__tags">
-            <span class="tag">RAG</span>
-            <span class="tag">NLP</span>
-            <span class="tag">Python</span>
-            <span class="tag">LLM</span>
-            <span class="tag">Healthcare AI</span>
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article class="project-card glass-card reveal" id="project-2">
-          <div class="project-card__header">
-            <div class="project-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M3 3v18h18"/>
-                <path d="M7 16l4-8 4 4 4-10"/>
-              </svg>
-            </div>
-            <a href="https://github.com/AhmedAminz/customer-churn-prediction" target="_blank" rel="noopener noreferrer" class="project-card__github-link" aria-label="View on GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-            </a>
-          </div>
-          <h3 class="project-card__title">Customer Churn Prediction</h3>
-          <p class="project-card__description">
-            An end-to-end machine learning system for predicting customer churn. Covers
-            data preprocessing, exploratory analysis, feature engineering, model
-            development, hyperparameter optimization, and model evaluation — focused on
-            building a reliable and maintainable ML workflow.
-          </p>
-          <div class="project-card__metrics">
-            <span class="metric-pill"><span class="metric-pill__icon">📈</span> <span class="metric-pill__highlight">86%+</span> ROC-AUC Benchmark</span>
-            <span class="metric-pill"><span class="metric-pill__icon">⚙️</span> <span class="metric-pill__highlight">End-to-End</span> ML Pipeline</span>
-            <span class="metric-pill"><span class="metric-pill__icon">🔬</span> <span class="metric-pill__highlight">Hyperparameter</span> Tuned</span>
-          </div>
-          <div class="project-card__tags">
-            <span class="tag">Scikit-learn</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">EDA</span>
-            <span class="tag">Classification</span>
-          </div>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="project-card glass-card reveal" id="project-3">
-          <div class="project-card__header">
-            <div class="project-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <path d="M8 21h8"/>
-                <path d="M12 17v4"/>
-                <path d="M7 8h2m2 0h2m2 0h2"/>
-                <path d="M7 12h10"/>
-              </svg>
-            </div>
-            <a href="https://github.com/AhmedAminz/UCMI" target="_blank" rel="noopener noreferrer" class="project-card__github-link" aria-label="View on GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-            </a>
-          </div>
-          <h3 class="project-card__title">Used Car Market Intelligence (UCMI)</h3>
-          <p class="project-card__description">
-            Led data preprocessing on a 4,300+ row used-car dataset — handling missing
-            values, outlier filtering, and categorical standardization — feeding a
-            collaborative feature-engineering and Power BI dashboard project analyzing
-            pricing trends across 29 brands.
-          </p>
-          <div class="project-card__metrics">
-            <span class="metric-pill"><span class="metric-pill__icon">📊</span> <span class="metric-pill__highlight">4,300+</span> Cleaned Records</span>
-            <span class="metric-pill"><span class="metric-pill__icon">🚗</span> <span class="metric-pill__highlight">29</span> Brands Analyzed</span>
-            <span class="metric-pill"><span class="metric-pill__icon">💡</span> <span class="metric-pill__highlight">Power BI</span> Interactive Dashboard</span>
-          </div>
-          <div class="project-card__tags">
-            <span class="tag">Power BI</span>
-            <span class="tag">Data Cleaning</span>
-            <span class="tag">EDA</span>
-            <span class="tag">Feature Engineering</span>
-          </div>
-        </article>
-
+        </div>
       </div>
+
+      <!-- Projects Carousel Wrapper -->
+      <div class="projects__carousel-wrapper reveal">
+        <!-- Floating Left Arrow for quick desktop click -->
+        <button id="projects-floating-prev" class="projects__floating-arrow projects__floating-arrow--prev" aria-label="Previous project">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div id="projects-track" class="projects__track">
+
+          <!-- Project 1: MedLens AI -->
+          <article class="project-slide glass-card" id="project-1">
+            <div class="project-slide__image-col">
+              <div class="project-slide__image-card">
+                <img src="medlens-ai.jpeg" alt="Clinical Decision Support RAG System preview" class="project-slide__img" />
+                <div class="project-slide__image-glow"></div>
+              </div>
+            </div>
+            <div class="project-slide__content-col">
+              <div class="project-slide__top">
+                <span class="project-slide__tag-badge">AI / RAG Architecture</span>
+                <a href="https://github.com/AhmedAminz/medlens-ai-skin-health-assistant" target="_blank" rel="noopener noreferrer" class="project-slide__github-link" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>Source</span>
+                </a>
+              </div>
+              <h3 class="project-slide__title">Clinical Decision Support RAG System</h3>
+              <p class="project-slide__description">
+                An AI-powered clinical decision support system built with Retrieval-Augmented
+                Generation (RAG), designed to provide grounded answers from trusted medical
+                guidelines. Features schema-aware chunking, intent-based routing, grounded
+                generation with citations, and safety/evaluation mechanisms.
+              </p>
+              <div class="project-card__metrics">
+                <span class="metric-pill"><span class="metric-pill__icon">⚡</span> <span class="metric-pill__highlight">Grounded</span> Guidelines</span>
+                <span class="metric-pill"><span class="metric-pill__icon">🎯</span> <span class="metric-pill__highlight">Intent-Routed</span> Multi-Stage RAG</span>
+                <span class="metric-pill"><span class="metric-pill__icon">🛡️</span> <span class="metric-pill__highlight">Safety-Checked</span> Citations</span>
+              </div>
+              <div class="project-card__tags">
+                <span class="tag">RAG</span>
+                <span class="tag">NLP</span>
+                <span class="tag">Python</span>
+                <span class="tag">LLM</span>
+                <span class="tag">Healthcare AI</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Customer Churn Prediction -->
+          <article class="project-slide glass-card" id="project-2">
+            <div class="project-slide__image-col">
+              <div class="project-slide__image-card">
+                <img src="churn-predictor.png" alt="Customer Churn Prediction project preview" class="project-slide__img" />
+                <div class="project-slide__image-glow"></div>
+              </div>
+            </div>
+            <div class="project-slide__content-col">
+              <div class="project-slide__top">
+                <span class="project-slide__tag-badge">Machine Learning Pipeline</span>
+                <a href="https://github.com/AhmedAminz/customer-churn-prediction" target="_blank" rel="noopener noreferrer" class="project-slide__github-link" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>Source</span>
+                </a>
+              </div>
+              <h3 class="project-slide__title">Customer Churn Prediction</h3>
+              <p class="project-slide__description">
+                An end-to-end machine learning system for predicting customer churn. Covers
+                data preprocessing, exploratory analysis, feature engineering, model
+                development, hyperparameter optimization, and model evaluation — focused on
+                building a reliable and maintainable ML workflow.
+              </p>
+              <div class="project-card__metrics">
+                <span class="metric-pill"><span class="metric-pill__icon">📈</span> <span class="metric-pill__highlight">86%+</span> ROC-AUC Benchmark</span>
+                <span class="metric-pill"><span class="metric-pill__icon">⚙️</span> <span class="metric-pill__highlight">End-to-End</span> ML Pipeline</span>
+                <span class="metric-pill"><span class="metric-pill__icon">🔬</span> <span class="metric-pill__highlight">Hyperparameter</span> Tuned</span>
+              </div>
+              <div class="project-card__tags">
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">EDA</span>
+                <span class="tag">Classification</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: UCMI -->
+          <article class="project-slide glass-card" id="project-3">
+            <div class="project-slide__image-col">
+              <div class="project-slide__image-card">
+                <img src="ucmi-dashboard.png" alt="Used Car Market Intelligence Power BI dashboard preview" class="project-slide__img" />
+                <div class="project-slide__image-glow"></div>
+              </div>
+            </div>
+            <div class="project-slide__content-col">
+              <div class="project-slide__top">
+                <span class="project-slide__tag-badge">Business Intelligence & EDA</span>
+                <a href="https://github.com/AhmedAminz/UCMI" target="_blank" rel="noopener noreferrer" class="project-slide__github-link" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>Source</span>
+                </a>
+              </div>
+              <h3 class="project-slide__title">Used Car Market Intelligence (UCMI)</h3>
+              <p class="project-slide__description">
+                Led data preprocessing on a 4,300+ row used-car dataset — handling missing
+                values, outlier filtering, and categorical standardization — feeding a
+                collaborative feature-engineering and Power BI dashboard project analyzing
+                pricing trends across 29 brands.
+              </p>
+              <div class="project-card__metrics">
+                <span class="metric-pill"><span class="metric-pill__icon">📊</span> <span class="metric-pill__highlight">4,300+</span> Cleaned Records</span>
+                <span class="metric-pill"><span class="metric-pill__icon">🚗</span> <span class="metric-pill__highlight">29</span> Brands Analyzed</span>
+                <span class="metric-pill"><span class="metric-pill__icon">💡</span> <span class="metric-pill__highlight">Power BI</span> Interactive Dashboard</span>
+              </div>
+              <div class="project-card__tags">
+                <span class="tag">Power BI</span>
+                <span class="tag">Data Cleaning</span>
+                <span class="tag">EDA</span>
+                <span class="tag">Feature Engineering</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Floating Right Arrow for quick desktop click -->
+        <button id="projects-floating-next" class="projects__floating-arrow projects__floating-arrow--next" aria-label="Next project">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Carousel Pagination Dots -->
+      <div class="projects__dots" id="projects-dots" aria-label="Project slide navigation">
+        <button class="project-dot active" data-index="0" aria-label="Go to project 1"></button>
+        <button class="project-dot" data-index="1" aria-label="Go to project 2"></button>
+        <button class="project-dot" data-index="2" aria-label="Go to project 3"></button>
+      </div>
+
     </div>
   </section>
 
