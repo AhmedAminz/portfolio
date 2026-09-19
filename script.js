@@ -21,8 +21,8 @@ function initNeuralCanvas() {
   const ctx = canvas.getContext('2d');
 
   let width, height, particles, mouse, animationId;
-  const PARTICLE_COUNT_BASE = 100;
-  const CONNECTION_DIST = 150;
+  const PARTICLE_COUNT_BASE = 155;
+  const CONNECTION_DIST = 140;
   const MOUSE_RADIUS = 200;
 
   mouse = { x: -9999, y: -9999 };
@@ -34,7 +34,7 @@ function initNeuralCanvas() {
   }
 
   function createParticles() {
-    const count = Math.min(PARTICLE_COUNT_BASE, Math.floor((width * height) / 18000));
+    const count = Math.min(PARTICLE_COUNT_BASE, Math.max(65, Math.floor((width * height) / 20000)));
     particles = [];
     for (let i = 0; i < count; i++) {
       particles.push({
